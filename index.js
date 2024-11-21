@@ -16,4 +16,9 @@ camera.position.z = 2;
 
 const scene = new THREE.Scene();
 
+const geometry = new THREE.IcosahedronGeometry(1.0, 2);
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const mesh = new THREE.Mesh(geometry, material);
+scene.add(mesh);
+
 renderer.render(scene, camera); // render the scene here
