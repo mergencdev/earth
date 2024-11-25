@@ -17,8 +17,19 @@ camera.position.z = 2;
 const scene = new THREE.Scene();
 
 const geometry = new THREE.IcosahedronGeometry(1.0, 2);
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const material = new THREE.MeshStandardMaterial({ 
+    color: 0xffffff,
+    flatShading: true,
+});
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
-renderer.render(scene, camera); // render the scene here
+const hemiLight = new THREE.HemisphereLight(0xffffff, 0x000000, 1);
+scene.add(hemiLight);
+
+function animate(t = 0) {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+}
+
+animate();
