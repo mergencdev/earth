@@ -24,11 +24,16 @@ const material = new THREE.MeshStandardMaterial({
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
+const wireMat = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true });
+const wireMesh = new THREE.Mesh(geometry, wireMat);
+mesh.add(wireMesh);
+
 const hemiLight = new THREE.HemisphereLight(0xffffff, 0x000000, 1);
 scene.add(hemiLight);
 
 function animate(t = 0) {
     requestAnimationFrame(animate);
+    mesh.rotation.y = t * 0.0001;
     renderer.render(scene, camera);
 }
 
