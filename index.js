@@ -26,9 +26,10 @@ scene.add(mesh);
 
 const wireMat = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true });
 const wireMesh = new THREE.Mesh(geometry, wireMat);
+wireMesh.scale.setScalar(1.0001);
 mesh.add(wireMesh);
 
-const hemiLight = new THREE.HemisphereLight(0xffffff, 0x000000, 1);
+const hemiLight = new THREE.HemisphereLight(0x0099ff, 0xaa5500, 1);
 scene.add(hemiLight);
 
 function animate(t = 0) {
